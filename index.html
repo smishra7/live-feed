@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Live Feed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container, .feed-container {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+    .login-container h2, .feed-container h2 {
+      margin-bottom: 20px;
+    }
+    .login-container input, .login-container button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container" id="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="feed-container" id="feed-container" style="display: none;">
+    <h2>Live Feed</h2>
+    <iframe 
+      src="YOUR_STREAMING_URL_HERE" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Replace these with your actual credentials
+      const validUsername = "admin";
+      const validPassword = "password123";
+
+      if (username === validUsername && password === validPassword) {
+        document.getElementById('login-container').style.display = "none";
+        document.getElementById('feed-container').style.display = "block";
+      } else {
+        alert("Invalid credentials!");
+      }
+    }
+  </script>
+</body>
+</html>
